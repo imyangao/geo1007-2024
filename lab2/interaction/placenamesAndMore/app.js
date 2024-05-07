@@ -105,6 +105,12 @@ var allFunctions = function () {
     request.open("GET", requestUrl, true);
     request.onload = function () {
       if (this.status >= 200 && this.status < 400) {
+        // remove previous XML output
+        var existingTextarea = document.querySelector("main .forDebug2 textarea");
+        if (existingTextarea) {
+          existingTextarea.parentNode.removeChild(existingTextarea);
+        }
+
         var textarea = document.createElement("textarea");
         textarea.rows = "20";
         textarea.cols = "60";
@@ -127,6 +133,14 @@ var allFunctions = function () {
   };
 
   var handleXMLResponse = function (data) {
+    // remove exsting table
+    var existingTable = document.querySelector("#xmlDataAsTable");
+    if (existingTable) {
+        while (existingTable.firstChild) {
+            existingTable.removeChild(existingTable.firstChild);
+        }
+    }
+
     var feature = data.getElementsByTagName("intersection")[0];
     if (typeof feature !== "undefined" && feature.childNodes.length > 0) {
       var headerRow = document.createElement("tr");
@@ -155,6 +169,12 @@ var allFunctions = function () {
   };
 
   var getAndDisplayMap = function (wms_request) {
+    // remove the existing map
+    var existingImg = document.querySelector("main .mapDiv img");
+    if (existingImg) {
+        existingImg.parentNode.removeChild(existingImg);
+    }
+
     var img = document.createElement("img");
     img.style.display = "none";
     img.src = wms_request;

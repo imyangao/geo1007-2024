@@ -1,0 +1,32 @@
+body {
+    background-color: #f9e933; 
+}
+
+ol {
+    border: 2px solid #000; 
+    padding: 10px; 
+    margin: 20px; 
+    list-style-position: inside; 
+}
+
+.list-a {
+    font-family: 'Arial', sans-serif;
+}
+
+.list-b {
+    font-family: 'Times New Roman', serif;
+}
+
+p {
+    border: 5px solid black; 
+    padding: 10px;
+}
+
+span {
+    border: 5px solid black; 
+    padding: 10px;
+}
+
+h2{
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5); 
+}
